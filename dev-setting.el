@@ -17,7 +17,7 @@
   (require 'util)
   (lm-set-key c-mode-base-map
 			  (list
-			   (list "{"                    'skeleton-c-mode-left-brace)
+			   (list "{"                 (lambda()(interactive)(lm-c-mode-left-brace "{+")))
 			   ;;(list [(control \`)]   'hs-toggle-hiding)
 			   (list [(return)]         'newline-and-indent)
 			   (list [(f7)]             'compile)
@@ -33,6 +33,44 @@
   (setq c-macro-cppflags " ")
   (setq c-macro-prompt-flag t)
   ;;(setq hs-minor-mode t)
+  )
+
+;; 自动插入括号函数
+;;;###autoload
+(defun lm-c-mode-left-brace(arg)
+  (let ((bracelist '(("[" "[" "]" nil) 
+		     ("{+" "{\n" "\n}" t) 
+		     ("{" "{" "}" nil)
+		     ("\"" "\"" "\"" nil)
+		     ("(" "(" ")" nil))))
+    (dolist (ele bracelist)
+      (let ((charin (nth 0 ele))
+	    (left (nth 1 ele))
+	    (right (nth 2 ele))
+	    (need-indent (nth 3 ele)))
+	(when (string= arg charin)
+	  (insert left)
+	  (save-excursion
+	    (insert right))
+	  (when need-indent
+	    (c-indent-line))
+	  )))))
+
+;;;###autoload
+(defun lm-c-mode-right-brace(arg)
+  (let ((ignore-list '("\n" " "))
+	(curr-pos (point))
+	char-find)
+    (while (and (char-after curr-pos)
+		(progn
+		  (setq char-find (string (char-after curr-pos)))
+		  (member char-find ignore-list)
+		  ))
+      (setq curr-pos (+ 1 curr-pos))
+      )
+    (if (string= arg char-find)
+	(goto-char (+ 1 curr-pos))
+      (insert arg)))
   )
 
 (defun skeleton-c-mode-left-brace (arg)

@@ -10,6 +10,13 @@
 
 (set-key-bindings 'global-set-key   
 		  (list 
+		   (list "{"                 (lambda()(interactive)(lm-c-mode-left-brace "{")))
+		   (list "["                 (lambda()(interactive)(lm-c-mode-left-brace "[")))
+		   (list "("                 (lambda()(interactive)(lm-c-mode-left-brace "(")))
+		   (list "\""                (lambda()(interactive)(lm-c-mode-left-brace "\"")))
+		   (list "}"                 (lambda()(interactive)(lm-c-mode-right-brace "}")))
+		   (list "]"                 (lambda()(interactive)(lm-c-mode-right-brace "]")))
+		   (list ")"                 (lambda()(interactive)(lm-c-mode-right-brace ")")))
 		   (list (kbd "C-j")         'goto-line)
 		   (list (kbd "C-x C-f")     'find-file-at-point)
 		   (list [(f11)]             'highlight-tail-mode)
