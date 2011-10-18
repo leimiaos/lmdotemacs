@@ -18,7 +18,7 @@
       (progn
         (set-face-foreground 'mode-line "black")
 ;        (set-face-background 'mode-line "lightgreen")
-        (unless is-before-emacs-21
+        (unless nil
           (set-face-foreground 'mode-line-inactive "black")
           (set-face-background 'mode-line-inactive "white")))
     (set-face-foreground 'mode-line "green")
@@ -84,7 +84,6 @@
 (size-indication-mode 1)
 (setq-default mode-line-buffer-identification (propertized-buffer-identification "%b"))
 
-(if is-after-emacs-23
     (setq-default
      mode-line-position
      `((:eval (get-lines-4-mode-line))
@@ -126,22 +125,7 @@ mouse-1: Display Line and Column Mode Menu"))
                'mouse-face 'mode-line-highlight
                'help-echo "Column number\n\
 mouse-1: Display Line and Column Mode Menu"))))))
-  (let* ((help-echo "mouse-1: select (drag to resize), mouse-2 = C-x 1, mouse-3 = C-x 0"))
-    (setq-default
-     mode-line-position
-     `((:eval (get-lines-4-mode-line))
-       (:propertize "%p" 'help-echo ,help-echo)
-       (size-indication-mode
-        (" " (:eval (propertize
-                     (get-size-indication-format) 'help-echo ,help-echo
-                     'face (and transient-mark-mode mark-active (get-mode-line-region-face))))))
-       (:eval
-        (if (and line-number-mode (not (linum-mode-active)))
-            (if column-number-mode
-                (propertize " (%l,%c)" 'help-echo ,help-echo)
-              (propertize " L%l" 'help-echo ,help-echo))
-          (if column-number-mode
-              (propertize " C%c" 'help-echo ,help-echo))))))))
+
 
 (let* ((help-echo
         "mouse-1: Select (drag to resize)\n\

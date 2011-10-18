@@ -92,7 +92,7 @@ This includes:
       (semanticdb-load-ebrowse-caches))
     )
   )
-(message "breakpoint1")
+
 (defun semantic-load-enable-code-helpers ()
   "Enable some semantic features that provide basic coding assistance.
 This includes `semantic-load-enable-minimum-features' plus:

@@ -4,7 +4,6 @@
 
 (require 'auto-complete-config)
 (require 'auto-complete+)
-(require 'util)
 
 ;; After do this, isearch any string, M-: (match-data) always
 ;; return the list whose elements is integer
@@ -29,7 +28,7 @@
   
   ;;(add-to-list 'ac-dictionary-directories (concat my-emacs-lisps-path "auto-complete/dict"))
 
-  (setq ac-auto-show-menu 1
+  (setq ac-auto-show-menu 3
         ac-auto-start t
         ac-dwim t
         ac-candidate-limit ac-menu-height
