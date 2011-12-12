@@ -18,7 +18,6 @@
 
 (set-key-bindings 'global-set-key   
 		  (list 
-		   (list (kbd "C-j")         'goto-line)
 		   (list (kbd "C-x C-f")     'find-file-at-point)
 		   (list [(f11)]             'highlight-tail-mode)
 		   (list (kbd "C-]")         'goto-paren)
