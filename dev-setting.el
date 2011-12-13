@@ -157,4 +157,29 @@
     ((or (looking-at "[]\")}]") (looking-back "[]\")}][ \t]*")) (if (< (point) (point-max)) (forward-char)) (backward-sexp))
    (t (message "找不到匹配的括号"))))
 
+;; AUCTex 
+;; use load instead of autoload because the auctex use autoload inside
+(if (load "auctex" t) (progn
+					   (load "preview-latex" t)
+					   (setq TeX-auto-save t)
+					   (setq TeX-parse-self t)
+					   (setq-default TeX-master nil)
+					   (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+					   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+					   (add-hook 'LaTeX-mode-hook (lambda()
+													(add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
+													(add-to-list 'TeX-command-list '("PdfLaTex" "%`pdflatex%(mode)%' %t" TeX-run-TeX nil t))
+													(setq TeX-command-default "XeLaTeX")
+													(setq TeX-save-query   nil )
+													(setq TeX-show-compilation t)
+													)))
+  (message "Load Auctex failed"))
+
+;; Asymptote
+;;(add-to-list 'load-path "/usr/local/texlive/2009/texmf/asymptote")
+(autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
+(autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
+(autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
+
 (provide 'dev-setting)
