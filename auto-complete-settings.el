@@ -14,10 +14,10 @@
 ;; 必须要干掉补全菜单, 很麻烦, 用M-j来执行`ac-complete'
 (eal-define-keys
  'ac-complete-mode-map
- `(("<return>"   nil)
-   ("RET"        nil)
+ `(("<return>"   ac-complete)
+   ("RET"        ac-complete)
    ("M-j"        ac-complete)
-   ("[(tab)]"    ac-complete)
+   ("[(tab)]"    ac-expand)
    ("["          nil)
    ("]"          nil)
 ))
@@ -28,7 +28,7 @@
   
   ;;(add-to-list 'ac-dictionary-directories (concat my-emacs-lisps-path "auto-complete/dict"))
 
-  (setq ac-auto-show-menu 3
+  (setq ac-auto-show-menu 0.5
         ac-auto-start t
         ac-dwim t
         ac-candidate-limit ac-menu-height
@@ -200,15 +200,16 @@
 (apply-args-list-to-fun
  (lambda (hook fun)
    (am-add-hooks hook fun))
- `(('java-mode-hook   'ac-settings-4-java)
-   ('c-mode-hook      'ac-settings-4-c)
-   ('c++-mode-hook    'ac-settings-4-cpp)
-   ('text-mode-hook   'ac-settings-4-text)
-   ('eshell-mode-hook 'ac-settings-4-eshell)
-   ('ruby-mode-hook   'ac-settings-4-ruby)
-   ('html-mode-hook   'ac-settings-4-html)
-   ('awk-mode-hook    'ac-settings-4-awk)
-   ('tcl-mode-hook    'ac-settings-4-tcl)))
+ `(('java-mode-hook        'ac-settings-4-java)
+   ('c-mode-hook           'ac-settings-4-c)
+   ('c++-mode-hook         'ac-settings-4-cpp)
+   ('text-mode-hook        'ac-settings-4-text)
+   ('fundamental-mode-hook 'ac-settings-4-text)
+   ('eshell-mode-hook      'ac-settings-4-eshell)
+   ('ruby-mode-hook        'ac-settings-4-ruby)
+   ('html-mode-hook        'ac-settings-4-html)
+   ('awk-mode-hook         'ac-settings-4-awk)
+   ('tcl-mode-hook         'ac-settings-4-tcl)))
 
 (eal-eval-by-modes
  ac-modes

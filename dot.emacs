@@ -20,7 +20,7 @@
 			  ;;(message childdir)
 			  )) subdirs)))
 
-(my-load-path emacs-dot-d-path '("" "lisps" "lisps/auto-complete" "lisps/auto-complete/dict" "lisps/cedet-1.0/common" "lisps/cedet-1.0/eieio"))
+(my-load-path emacs-dot-d-path '("" "lisps" "lisps/auto-complete" "lisps/auto-complete/dict" "lisps/cedet-1.0/common" "lisps/cedet-1.0/eieio" "lisps/yasnippet"))
 
 (require 'auto-paren-mode)
 (require 'dev-setting)

@@ -32,7 +32,7 @@
   (setq c-macro-preprocessor "cpp")
   (setq c-macro-cppflags " ")
   (setq c-macro-prompt-flag t)
-  ;;(setq hs-minor-mode t)
+  (setq hs-minor-mode t)
   )
 
 
@@ -181,5 +181,8 @@
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
 (autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
+
+;; hs-hide-mode
+(hs-minor-mode)
 
 (provide 'dev-setting)

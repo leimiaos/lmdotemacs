@@ -22,6 +22,10 @@
 		   (list [(f11)]             'highlight-tail-mode)
 		   (list (kbd "C-]")         'goto-paren)
 		   (list [(meta f11)]        'auto-paren-mode)
+		   (list (kbd "<M-left>")    'hs-hide-block)
+		   (list (kbd "<M-S-left>")  'hs-hide-all)
+		   (list (kbd "<M-right>")   'hs-show-block)
+		   (list (kbd "<M-S-right>") 'hs-show-all)
 		   ))
 
 ;; (set-key-bindings 'lm-add-key-binding
