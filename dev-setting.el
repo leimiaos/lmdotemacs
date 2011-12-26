@@ -32,7 +32,6 @@
   (setq c-macro-preprocessor "cpp")
   (setq c-macro-cppflags " ")
   (setq c-macro-prompt-flag t)
-  (setq hs-minor-mode t)
   )
 
 
@@ -105,10 +104,10 @@
   (require 'util)
   (lm-set-key semantic-tag-folding-mode-map 
 			  (list 
-			   (list (kbd "C-c , -")   'semantic-tag-folding-fold-block)
-			   (list (kbd "C-c , +")   'semantic-tag-folding-show-block)
-			   (list (kbd "C-_")       'semantic-tag-folding-fold-all)
-			   (list (kbd "C-+")       'semantic-tag-folding-show-all)
+			   (list (kbd "<M-left>")  'semantic-tag-folding-fold-block)
+			   (list (kbd "<M-right>") 'semantic-tag-folding-show-block)
+			   (list (kbd "<M-S-left>")       'semantic-tag-folding-fold-all)
+			   (list (kbd "<M-S-right>")       'semantic-tag-folding-show-all)
 			   )))
 
 (defun semantic-ia-fast-jump-back ()
@@ -170,6 +169,9 @@
 					   (add-hook 'LaTeX-mode-hook (lambda()
 													(add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
 													(add-to-list 'TeX-command-list '("PdfLaTex" "%`pdflatex%(mode)%' %t" TeX-run-TeX nil t))
+													(setq TeX-view-program-list '(("Okular" "okular --unique %o" )))
+													(setq TeX-view-program-selection '((output-pdf "Okular")
+																					   (output-dvi "Okular")))
 													(setq TeX-command-default "XeLaTeX")
 													(setq TeX-save-query   nil )
 													(setq TeX-show-compilation t)
@@ -183,6 +185,10 @@
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
 
 ;; hs-hide-mode
-(hs-minor-mode)
+(am-add-hooks 
+ '(lisp-interaction-mode-hook emacs-lisp-mode-hook)
+ (lambda()
+   "Activate the hs-minor-mode"
+   (hs-minor-mode t)))
 
 (provide 'dev-setting)
