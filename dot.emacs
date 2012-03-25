@@ -22,6 +22,8 @@
 
 (my-load-path emacs-dot-d-path '("" "lisps" "lisps/auto-complete" "lisps/auto-complete/dict" "lisps/cedet-1.0/common" "lisps/cedet-1.0/eieio" "lisps/yasnippet"))
 
+(require 'dired-setting)
+
 (require 'auto-paren-mode)
 (require 'dev-setting)
 ;;(require 'dea-emacs)
@@ -33,8 +35,7 @@
 (require 'unicad)
 
 ;; shutdown vc
-;; (setq vc-handled-backends nil)
-
+;;(setq vc-handled-backends nil)
 ;; hightlight-tail
 (require 'highlight-tail)
 (setq highlight-tail-posterior-type t)
@@ -43,6 +44,8 @@
 							  ("white" . 66)))
 (setq highlight-tail-steps 100)
 (setq highlight-tail-timer 0.5)
+
+;;(require 'emms-setting)
 
 ;; global key binding
 (require 'global-key)
@@ -66,3 +69,6 @@
 (mouse-avoidance-mode 'animate)
 
 (setq-default ispell-program-name "aspell")
+
+;; 默认模式
+(setq-default major-mode 'text-mode)

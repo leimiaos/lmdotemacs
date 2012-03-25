@@ -191,4 +191,18 @@
    "Activate the hs-minor-mode"
    (hs-minor-mode t)))
 
+;; vc-backend
+(defun switch-vc-backend()
+  "版本控制功能开关"
+  (interactive)
+  (if vc-handled-backends (progn
+	  (setq vc-handled-backends-back vc-handled-backends)
+	  (setq vc-handled-backends nil)
+	  (message "Version Control System disabled"))
+	(progn
+	  (setq vc-handled-backends vc-handled-backends-back)
+	  (message "Version Control System enabled"))))
+
+(switch-vc-backend)
+
 (provide 'dev-setting)

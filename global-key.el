@@ -20,6 +20,7 @@
 		  (list 
 		   (list (kbd "C-x C-f")     'find-file-at-point)
 		   (list [(f11)]             'highlight-tail-mode)
+		   (list [(f9)]              'switch-vc-backend)
 		   (list (kbd "C-]")         'goto-paren)
 		   (list [(meta f11)]        'auto-paren-mode)
 		   (list (kbd "<M-left>")    'hs-hide-block)
