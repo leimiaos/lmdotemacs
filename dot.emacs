@@ -17,7 +17,6 @@
 			"LAMBDA"
 			(let ((childdir (concat rootp lst)))
 			  (add-to-list 'load-path childdir)
-			  ;;(message childdir)
 			  )) subdirs)))
 
 (my-load-path emacs-dot-d-path '("" "lisps" "lisps/auto-complete" "lisps/auto-complete/dict" "lisps/cedet-1.0/common" "lisps/cedet-1.0/eieio" "lisps/yasnippet"))

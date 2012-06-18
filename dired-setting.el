@@ -1,4 +1,4 @@
-4; -*- mode: Emacs-Lisp; tab-width: 4; -*-
+; -*- mode: Emacs-Lisp; tab-width: 4; -*-
 
 (add-hook 'dired-load-hook
 	  (lambda()
@@ -12,7 +12,7 @@
 	    ))
 
 (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.[^\\.]")
-(setq dired-omit-extensions
-	  (".o" "~" ".bin" ".lbin" ".so" ".a" ".ln" ".blg" ".bbl" ".elc" ".lof" ".glo" ...)) 
+;;(setq dired-omit-extensions
+;;	  '(".o" "~" ".bin" ".lbin" ".so" ".a" ".ln" ".blg" ".bbl" ".elc" ".lof" ".glo" )) 
 
 (provide 'dired-setting)

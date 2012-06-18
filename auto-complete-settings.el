@@ -14,8 +14,8 @@
 ;; 必须要干掉补全菜单, 很麻烦, 用M-j来执行`ac-complete'
 (eal-define-keys
  'ac-complete-mode-map
- `(("<return>"   ac-complete)
-   ("RET"        ac-complete)
+ `(("<return>"   nil)
+   ("RET"        nil)
    ("M-j"        ac-complete)
    ("[(tab)]"    ac-expand)
    ("["          nil)
@@ -148,6 +148,25 @@
           ac-source-words-in-same-mode-buffers
           ac-source-imenu)))
 
+(defun ac-settings-4-lua ()
+  (setq ac-sources
+	'(ac-source-yasnippet
+	  ac-source-abbrev
+	  ac-source-words-in-buffer
+	  ac-source-words-in-same-mode-buffers)))
+
+(setq ess-use-auto-complete t)
+
+(defun ac-settings-4-r ()
+  (setq ac-sources
+	'(ac-source-R
+	  ac-source-R-objects
+	  ac-source-R-args
+	  ac-source-yasnippet
+	  ac-source-abbrev
+	  ac-source-words-in-buffer
+	  ac-source-words-in-same-mode-buffers)))
+
 (defun ac-settings-4-eshell ()
   (setq ac-sources
         '(ac-source-yasnippet
@@ -209,7 +228,11 @@
    ('ruby-mode-hook        'ac-settings-4-ruby)
    ('html-mode-hook        'ac-settings-4-html)
    ('awk-mode-hook         'ac-settings-4-awk)
+   ('lua-mode-hook         'ac-settings-4-lua)
+   ('R-mode-hook           'ac-settings-4-r)
    ('tcl-mode-hook         'ac-settings-4-tcl)))
+
+
 
 (eal-eval-by-modes
  ac-modes

@@ -72,7 +72,7 @@
                     org-mode svn-log-edit-mode text-mode
                     autoconf-mode makefile-automake-mode makefile-gmake-mode
                     conf-javaprop-mode conf-unix-mode change-log-mode
-                    tcl-mode awk-mode latex-mode rst-mode)
+                    tcl-mode awk-mode latex-mode rst-mode lua-mode)
   "Major modes function `auto-complete-mode' can run on."
   :type '(list symbol)
   :group 'auto-complete+)

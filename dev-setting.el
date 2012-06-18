@@ -127,6 +127,9 @@
 	 (cedet-setting)
 	 ))
 
+;; ESS
+(require 'ess-site)
+
 ;; auto-complete
 (require 'ahei-misc)
 (require 'util)
@@ -186,7 +189,7 @@
 
 ;; hs-hide-mode
 (am-add-hooks 
- '(lisp-interaction-mode-hook emacs-lisp-mode-hook)
+ '(lisp-interaction-mode-hook emacs-lisp-mode-hook lua-mode-hook)
  (lambda()
    "Activate the hs-minor-mode"
    (hs-minor-mode t)))
