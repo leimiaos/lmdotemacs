@@ -127,13 +127,13 @@
 	 (cedet-setting)
 	 ))
 
-;; ESS
-(require 'ess-site)
 
 ;; auto-complete
 (require 'ahei-misc)
 (require 'util)
-(require 'auto-complete-settings)
+;(use-package auto-complete
+;  :ensure t)
+;(require 'auto-complete-settings)
 
 ;; php mode
 (add-to-list 'load-path (concat emacs-dot-d-path "php-mode"))
@@ -207,5 +207,9 @@
 	  (message "Version Control System enabled"))))
 
 (switch-vc-backend)
+
+(use-package magit
+  :bind (("C-c g" . magit-status))
+  :ensure t)
 
 (provide 'dev-setting)

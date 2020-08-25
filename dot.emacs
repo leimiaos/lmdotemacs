@@ -1,7 +1,7 @@
 ; -*- mode: Emacs-Lisp; tab-width: 4; -*-
 
 ;; 配置文件目录
-(setq emacs-dot-d-path "~/.lisp/")
+(setq emacs-dot-d-path "~/emacs-config/")
 
 ;; gentoo 的bug，过滤掉emacs自带的cedet
 (setq load-path (let (local-path)
@@ -19,12 +19,24 @@
 			  (add-to-list 'load-path childdir)
 			  )) subdirs)))
 
-(my-load-path emacs-dot-d-path '("" "lisps" "lisps/auto-complete" "lisps/auto-complete/dict" "lisps/cedet-1.0/common" "lisps/cedet-1.0/eieio" "lisps/yasnippet"))
+(my-load-path emacs-dot-d-path '("" "lisps"))
+
+(require 'package)
+
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+
+(package-initialize)
+
+(package-install 'use-package)
+(require 'use-package)
+
+(require 'dev-setting)
 
 (require 'dired-setting)
 
 (require 'auto-paren-mode)
-(require 'dev-setting)
+
 ;;(require 'dea-emacs)
 
 (require 'mode-line-settings)
@@ -71,3 +83,16 @@
 
 ;; 默认模式
 (setq-default major-mode 'text-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(dired-x use-package magit)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(header-line ((default :inherit mode-line) (((type tty)) :foreground "black" :background "yellow" :inverse-video nil) (((class color grayscale) (background light)) :background "grey90" :foreground "grey20" :box nil) (((class color grayscale) (background dark)) :background "#D58EFFFFFC18" :foreground "blue") (((class mono) (background light)) :background "white" :foreground "black" :inverse-video nil :box nil :underline t) (((class mono) (background dark)) :background "black" :foreground "white" :inverse-video nil :box nil :underline t)))
+ '(mode-line-buffer-id ((((class grayscale) (background light)) (:foreground "LightGray" :background "yellow" :weight bold)) (((class grayscale) (background dark)) (:foreground "DimGray" :background "yellow" :weight bold)) (((class color) (min-colors 88) (background light)) (:foreground "Orchid" :background "yellow")) (((class color) (min-colors 88) (background dark)) (:foreground "yellow" :background "HotPink3")) (((class color) (min-colors 16) (background light)) (:foreground "Orchid" :background "yellow")) (((class color) (min-colors 16) (background dark)) (:foreground "LightSteelBlue" :background "yellow")) (((class color) (min-colors 8)) (:foreground "blue" :background "yellow" :weight bold)) (t (:weight bold)))))

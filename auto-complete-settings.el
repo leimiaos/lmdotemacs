@@ -2,7 +2,7 @@
 
 ;; Time-stamp: <2010-12-03 16:55:07 Friday by taoshanwen>
 
-(require 'auto-complete-config)
+; (require 'auto-complete-config)
 (require 'auto-complete+)
 
 ;; After do this, isearch any string, M-: (match-data) always
