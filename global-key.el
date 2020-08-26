@@ -27,17 +27,8 @@
 		   (list (kbd "<M-S-left>")  'hs-hide-all)
 		   (list (kbd "<M-right>")   'hs-show-block)
 		   (list (kbd "<M-S-right>") 'hs-show-all)
+		   (list (kbd "<end>")       'end-of-line)
+		   (list (kbd "<home>")      'move-beginning-of-line)
 		   ))
-
-;; (set-key-bindings 'lm-add-key-binding
-;; 		  (list
-;; 		   (list "{"                 (lambda()(interactive)(lm-c-mode-left-brace "{")))
-;; 		   (list "["                 (lambda()(interactive)(lm-c-mode-left-brace "[")))
-;; 		   (list "("                 (lambda()(interactive)(lm-c-mode-left-brace "(")))
-;; 		   (list "\""                (lambda()(interactive)(lm-c-mode-left-brace "\"")))
-;; 		   (list "}"                 (lambda()(interactive)(lm-c-mode-right-brace "}")))
-;; 		   (list "]"                 (lambda()(interactive)(lm-c-mode-right-brace "]")))
-;; 		   (list ")"                 (lambda()(interactive)(lm-c-mode-right-brace ")")))
-;; 		   ))
 
 (provide 'global-key)
