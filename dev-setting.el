@@ -187,6 +187,15 @@
 (autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
 
+;; YamlMode
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+  :bind
+  ("C-m" . 'newline-and-indent)
+  )
+
 ;; hs-hide-mode
 (am-add-hooks 
  '(lisp-interaction-mode-hook emacs-lisp-mode-hook lua-mode-hook)
