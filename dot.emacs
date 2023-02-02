@@ -89,6 +89,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(datetime-timezone 'Asia/Chongqing)
+ '(logview-additional-submodes
+   '(("Spring"
+	  (format . "TIMESTAMP  LEVEL IGNORED --- [THREAD] NAME : MESSAGE")
+	  (levels . "SLF4J")
+	  (timestamp "Spring")
+	  (aliases))))
+ '(logview-additional-timestamp-formats '(("Spring" (java-pattern . "yyyy-MM-dd HH:mm:ss.SSS"))))
  '(package-selected-packages '(yaml-mode logview dired-x use-package magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
